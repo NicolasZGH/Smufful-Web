@@ -212,6 +212,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 60px 20px;
+            margin-bottom: 40px;
         }
 
         .gallery-grid {
@@ -351,10 +352,10 @@
 
         .lightbox-info {
             position: absolute;
-            bottom: 40px;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(71, 85, 105, 0.9);
+            background: rgba(71, 85, 105, 0.568);
             padding: 20px 30px;
             border-radius: 12px;
             text-align: center;
@@ -410,3 +411,48 @@
                 right: 20px;
             }
         }
+
+/*pie*/
+#pie {
+    width: 100%;
+    height: 48px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #f0f9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
+    gap: 40px;
+    box-shadow: 0 -4px 20px rgba(15, 23, 26, 0.3);
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(103, 232, 249, 0.1);
+}
+
+#pie a {
+    color: #67e8f9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#pie a:hover {
+    color: #22d3ee;
+    transform: translateY(-1px);
+}
+
+#pie a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background: linear-gradient(90deg, #67e8f9, #22d3ee);
+    transition: width 0.3s ease;
+}
+
+#pie a:hover::after {
+    width: 100%;
+}
