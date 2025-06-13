@@ -10,15 +10,17 @@ body {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
 }
 
-/*navbar*/
+/* navbar */
 #nav {
     width: 100%;
     height: 50px;
@@ -71,7 +73,8 @@ body {
     letter-spacing: 1px;
 }
 
-#nav a:hover, #nav a.active {
+#nav a:hover,
+#nav a.active {
     background: #67e8f9;
     color: #0f172a;
     transform: translateY(-2px);
@@ -103,7 +106,8 @@ body {
     letter-spacing: 0px;
 }
 
-#nav2 a:hover, #nav2 a.active {
+#nav2 a:hover,
+#nav2 a.active {
     background: rgba(103, 232, 249, 0.9);
     color: #0f172a;
     transform: translateY(-1px);
@@ -115,7 +119,7 @@ body {
     height: 25px;
     vertical-align: middle;
     margin-right: 6px;
-    filter: hue-rotate(180deg) saturate(2) brightness(1.2); 
+    filter: hue-rotate(180deg) saturate(2) brightness(1.2);
     transition: all 0.3s ease;
 }
 
@@ -125,7 +129,7 @@ body {
     transform: scale(1.1);
 }
 
-/*cabecera*/
+/* cabecera */
 #cabecera {
     width: 100%;
     height: 300px;
@@ -156,7 +160,7 @@ body {
     margin-bottom: 0px;
     letter-spacing: 2px;
     text-shadow: 0rem 0.25rem 0rem #24304e;
-    font-weight: 400; 
+    font-weight: 400;
 }
 
 .cabecera-subtitulo {
@@ -187,7 +191,7 @@ body {
     }
 }
 
-/*cuerpo*/
+/* cuerpo */
 #cuerpo {
     display: flex;
     justify-content: center;
@@ -209,11 +213,11 @@ body {
     float: left;
     padding: 8px;
     overflow: hidden;
-    font-family:'Exo', sans-serif;
+    font-family: 'Exo', sans-serif;
     border-radius: 16px;
 }
 
-.articulo:hover{
+.articulo:hover {
     background: rgba(71, 85, 105, 0.2);
     transform: scale(1.05) translateY(-8px);
     box-shadow: 0 20px 40px rgba(8, 145, 178, 0.2);
@@ -286,7 +290,7 @@ p {
     color: #0891b2;
 }
 
-/*pie*/
+/* pie */
 #pie {
     width: 100%;
     height: 48px;
@@ -333,7 +337,6 @@ p {
 }
 
 /* RESPONSIVE DESIGN */
-
 /* Tablets - 768px y menos */
 @media screen and (max-width: 768px) {
     /* Navegación principal */
@@ -341,33 +344,33 @@ p {
         gap: 15px;
         padding: 0 10px;
     }
-    
+
     #nav li {
         font-size: 14px;
     }
-    
+
     #nav a {
         padding: 6px 12px;
         font-size: 14px;
     }
-    
+
     /* Navegación social */
     #nav2 ul {
         gap: 15px;
         padding: 0 10px;
     }
-    
+
     #nav2 a {
         padding: 8px 20px;
         font-size: 14px;
     }
-    
+
     .icono-red {
         width: 20px;
         height: 20px;
         margin-right: 4px;
     }
-    
+
     /* Cabecera */
     #cabecera {
         height: 250px;
@@ -375,47 +378,47 @@ p {
         align-items: center;
         text-align: center;
     }
-    
+
     .cabecera-titulo {
         font-size: 60px;
         margin-left: 0;
     }
-    
+
     .cabecera-subtitulo {
         font-size: 16px;
         margin-left: 0;
         letter-spacing: 2px;
     }
-    
+
     .cabecera-img {
         width: 300px;
         margin: 0;
         order: -1;
     }
-    
+
     .cabecera-textos {
         margin-bottom: 20px;
         align-items: center;
     }
-    
+
     /* Cuerpo */
     #cuerpo {
         gap: 30px;
         margin: 0 20px;
     }
-    
+
     .articulo {
         width: 180px;
         height: 380px;
         margin: 15px;
     }
-    
+
     .btn {
         margin-left: 25px;
         padding: 10px 20px;
         font-size: 0.9rem;
     }
-    
+
     /* Pie */
     #pie {
         height: auto;
@@ -433,72 +436,72 @@ p {
         height: auto;
         padding: 5px 0;
     }
-    
+
     #nav ul {
         gap: 8px;
         padding: 0 5px;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     #nav li {
         font-size: 12px;
     }
-    
+
     #nav a {
         padding: 5px 8px;
         font-size: 12px;
         letter-spacing: 0.5px;
     }
-    
+
     /* Navegación social */
     #nav2 {
         height: auto;
         padding: 10px 0;
     }
-    
+
     #nav2 ul {
         gap: 10px;
         padding: 0 5px;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     #nav2 a {
         padding: 6px 12px;
         font-size: 12px;
     }
-    
+
     .icono-red {
         width: 18px;
         height: 18px;
         margin-right: 3px;
     }
-    
+
     /* Cabecera */
     #cabecera {
         height: 200px;
         padding: 20px 10px;
     }
-    
+
     .cabecera-titulo {
         font-size: 40px;
         letter-spacing: 1px;
     }
-    
+
     .cabecera-subtitulo {
         font-size: 12px;
         letter-spacing: 1px;
     }
-    
+
     .cabecera-img {
         width: 200px;
     }
-    
+
     .cabecera-textos {
         margin-bottom: 10px;
     }
-    
+
     /* Cuerpo */
     #cuerpo {
         flex-direction: column;
@@ -506,37 +509,36 @@ p {
         gap: 0;
         margin: 0 10px;
     }
-    
+
     .articulo {
-        width: 280px;
+        width: 165px;
         height: 350px;
         margin: 10px 0;
-        float: none;
     }
-    
+
     .articulo:hover {
         transform: scale(1.02) translateY(-4px);
     }
-    
+
     .redondo {
         height: 160px;
     }
-    
+
     h3 {
         font-size: 16px;
     }
-    
+
     p {
         font-size: 12px;
         padding: 0 10px;
     }
-    
+
     .btn {
-        margin-left: 50px;
+        margin-left: 35px;
         padding: 8px 16px;
         font-size: 0.8rem;
     }
-    
+
     /* Pie */
     #pie {
         flex-direction: column;
@@ -545,7 +547,7 @@ p {
         gap: 10px;
         font-size: 12px;
     }
-    
+
     #pie h4 {
         margin: 5px 0;
         font-size: 12px;
@@ -557,28 +559,28 @@ p {
     .cabecera-titulo {
         font-size: 32px;
     }
-    
+
     .cabecera-subtitulo {
         font-size: 10px;
     }
-    
+
     .cabecera-img {
         width: 150px;
     }
-    
+
     .articulo {
         width: 260px;
     }
-    
+
     .btn {
         margin-left: 40px;
     }
-    
+
     #nav a {
         padding: 4px 6px;
         font-size: 11px;
     }
-    
+
     #nav2 a {
         padding: 5px 8px;
         font-size: 11px;
