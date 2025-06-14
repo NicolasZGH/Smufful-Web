@@ -635,8 +635,11 @@ p {
     /* Pie */
     #pie {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 5px;
+        width: 100%;
         height: auto;
-        padding: 20px 10px;
         gap: 10px;
         font-size: 12px;
     }
