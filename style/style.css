@@ -349,6 +349,14 @@ p {
 /* RESPONSIVE DESIGN */
 /* Tablets - 768px y menos */
 @media screen and (max-width: 768px) {
+
+    html, body {
+        overflow-x: hidden; /* Evita el scroll horizontal */
+        width: 100%;
+    }
+
+
+
     /* Navegación principal */
     #nav ul {
         gap: 15px;
@@ -374,6 +382,20 @@ p {
         padding: 8px 20px;
         font-size: 14px;
     }
+
+#nav ul, #nav2 {
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas */
+    justify-content: center; /* Centra los elementos */ 
+    padding: 0 10px; /* Añade un poco de espacio a los lados */
+    margin: auto;
+    width: 100%; /* Asegura que ocupe todo el ancho */  
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    max-width: 100%; /* Evita que se desborde */    
+}
+
+#nav a, #nav2 a {
+    white-space: normal; /* Permite que el texto se ajuste a varias líneas */
+}
 
     .icono-red {
         width: 20px;
@@ -447,6 +469,7 @@ p {
     body {
         display: flex;
         flex-direction: column;
+
     }
 
     .navs-container {
@@ -462,7 +485,7 @@ p {
 
     #nav {
         position: relative;
-        height: 50px;
+        height: 35px;
     }
 
     #menu-toggle {
@@ -475,7 +498,7 @@ p {
         margin: 4px 0 0 6px;
         margin-top: 0px;
         z-index: 201;
-        position: relative;
+        position: absolute;
     }
 
 
@@ -492,6 +515,7 @@ p {
         grid-template-rows: repeat(2, auto);
         gap: 8px 0;
         justify-items: center;
+        top: 34px; /* Ajusta la posición vertical */
     }
     #nav.open ul {
         display: grid; /* Solo visible cuando está abierto */
