@@ -469,31 +469,38 @@ p {
         display: block;
         background: none;
         border: none;
-        font-size: 2em;
+        font-size: 1.5em;
         color: #f0f9ff;
         cursor: pointer;
-        margin: 8px 0 0 12px;
+        margin: 4px 0 0 6px;
+        margin-top: 0px;
         z-index: 201;
         position: relative;
     }
 
-    #nav ul {
-        display: none;
-        flex-direction: column;
-        background: #425885;
-        position: fixed;
-        top: 50px;
-        left: 0;
-        width: 100vw;
-        z-index: 9999;
-    }
-    #nav.open ul {
-        display: flex;
-    }
-
-    #nav li {
-        font-size: 14px;
-    }
+#nav ul {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100vw;
+    background: #0891b2;
+    z-index: 9999;
+    padding: 12px 0;
+    /* Nuevo: grid para 2 filas de 3 columnas */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px 0;
+    justify-items: center;
+}
+#nav.open ul {
+    display: grid;
+}
+#nav li {
+    width: 100%;
+    text-align: center;
+}
 
     #nav a {
         padding: 10px 16px;
