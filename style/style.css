@@ -484,21 +484,22 @@ p {
     }
 
     #nav {
-        position: relative;
+        position: static;
         height: 35px;
     }
 
     #menu-toggle {
+        width: 100%;
+        position:fixed;
         display: block;
-        background: none;
+        background: #0891b2;
         border: none;
         font-size: 1.5em;
         color: #f0f9ff;
         cursor: pointer;
-        margin: 4px 0 0 6px;
-        margin-top: 0px;
+        margin: 4px 10 50 6px;
+        margin-top: -1px;
         z-index: 201;
-        position: absolute;
     }
 
 
@@ -637,7 +638,7 @@ p {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 10px 5px;
+        padding: 10px 3px;
         width: 100%;
         height: auto;
         gap: 10px;
