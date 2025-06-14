@@ -478,25 +478,25 @@ p {
         position: relative;
     }
 
-#nav ul {
-    display: none;
-    position: fixed;
-    top: 50px;
-    left: 0;
-    width: 100vw;
-    background: #0891b2;
-    z-index: 9999;
-    padding: 12px 0;
-    /* Nuevo: grid para 2 filas de 3 columnas */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 20px 0;
-    justify-items: center;
-}
-#nav.open ul {
-    display: grid;
-}
+
+    #nav ul {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        top: 50px;
+        left: 0;
+        width: 100vw;
+        background: #0891b2;
+        z-index: 9999;
+        padding: 12px 0;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 8px 0;
+        justify-items: center;
+    }
+    #nav.open ul {
+        display: grid; /* Solo visible cuando está abierto */
+    }
+
 #nav li {
     width: 100%;
     text-align: center;
