@@ -516,6 +516,8 @@ p {
         gap: 8px 0;
         justify-items: center;
         top: 34px; /* Ajusta la posición vertical */
+        padding-left: 10px;
+        padding-right: 10px;
     }
     #nav.open ul {
         display: grid; /* Solo visible cuando está abierto */
@@ -523,14 +525,23 @@ p {
 
 #nav li {
     width: 100%;
-    text-align: center;
 }
 
     #nav a {
-        padding: 10px 16px;
-        font-size: 14px;
+        display: block; /* Hace que el enlace ocupe todo el ancho del li */
+        text-align: center; /* Centra el texto dentro del enlace */
+        width: 100%; /* Asegura el ancho completo */
+        padding: 10px 5px;
+        font-size: 13px;
         letter-spacing: 0.5px;
     }
+
+#nav a.active {
+    padding: 10px 2px;
+    padding-left: 0px;
+    min-width: unset;
+    width: auto;
+}
 
     /* Navegación social */
     #nav2 ul {
