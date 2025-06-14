@@ -547,15 +547,20 @@ p {
     /* Navegación social */
     #nav2 ul {
         display: flex;
-        gap: 10px;
+        gap: 30px;
         padding: 0 5px;
         flex-wrap: wrap;
         justify-content: center;
     }
 
+    #nav2 a:hover .icono-red {
+    filter: brightness(0) saturate(100%) invert(7%) sepia(24%) saturate(1729%) hue-rotate(197deg) brightness(95%) contrast(93%);
+    transform: scale(1.1);
+    }
+
     #nav2 a {
         font-size: 0; /* Oculta el texto */
-        padding: 8px 8px;
+        padding: 18px 8px;
     }
 
     #nav2 .icono-red {
@@ -591,6 +596,7 @@ p {
         filter: saturate(1.5) drop-shadow(-5px 0px 8px rgba(15, 23, 26, 0.37));
         margin-right: 240px;
         margin-left: 18px;
+        margin-top: 10px;
     }
 
     .cabecera-textos {
