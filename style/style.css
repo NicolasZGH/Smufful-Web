@@ -511,11 +511,12 @@ p {
         font-size: 1.5em;
         color: #f0f9ff;
         cursor: pointer;
-        padding: 8px 12px;
+        padding: 1.1px 10px;
         border-radius: 4px;
-        position: relative; /* Cambiar de fixed a relative */
+        position: fixed;
         z-index: 200;
-        margin-right: auto; /* Empuja el botón hacia la izquierda */
+        margin: 0;
+        left: 0 /* Empuja el botón hacia la izquierda */
     }
 
 
