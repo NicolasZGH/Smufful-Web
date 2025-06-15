@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fan Arts - Smufful Portfolio</title>
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/albums.css">
     <link rel='icon' href='images/icon2.png'>
     <link rel='icon' type='image/x-icon2' href='images/icon2.ico'>
@@ -189,6 +190,30 @@
             document.getElementById('lightbox-desc').textContent = currentImage.desc;
             document.getElementById('current-image').textContent = currentImageIndex + 1;
             document.getElementById('total-images').textContent = images.length;
+        }
+
+                // Soporte para swipe en el lightbox
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const lightbox = document.getElementById('lightbox');
+
+        lightbox.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        lightbox.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
+
+        function handleGesture() {
+            if (touchEndX < touchStartX - 40) {
+                changeImage(1); // Siguiente imagen
+            }
+            if (touchEndX > touchStartX + 40) {
+                changeImage(-1); // Imagen anterior
+            }
         }
 
         // Cerrar lightbox con tecla ESC
