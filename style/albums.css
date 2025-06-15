@@ -273,10 +273,19 @@ body {
 }
 
 .gallery-item-title {
+    font-family: 'Exo', sans-serif;
     font-size: 16px;
     font-weight: 600;
     color: #f0f9ff;
     margin-bottom: 8px;
+}
+
+.gallery-item-desc {
+    font-family: 'Exo', sans-serif;
+    font-size: 14px;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 0 10px;
 }
 
 /* Lightbox */
@@ -796,25 +805,31 @@ body {
 
     .lightbox-prev {
         left: 10px;
+        width: 53px;
+        height: 53px;
+        font-size: 28px;
     }
 
     .lightbox-next {
         right: 10px;
+        width: 53px;
+        height: 53px;
+        font-size: 28px;
     }
 
     .lightbox-close {
         top: 10px;
         right: 10px;
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
     }
 
     .lightbox-counter {
         top: 10px;
         left: 10px;
         padding: 6px 12px;
-        font-size: 11px;
+        font-size: 18px;
     }
 
     .lightbox-info {
@@ -823,12 +838,13 @@ body {
     }
 
     .lightbox-title {
-        font-size: 14px;
-        margin-bottom: 3px;
+        font-size: 20px;
+        margin-bottom: 10px;
     }
 
     .lightbox-desc {
-        font-size: 11px;
+        margin-top: -10px;
+        font-size: 14px;
     }
 
     /* Pie */
