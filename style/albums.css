@@ -813,6 +813,12 @@ body {
         font-size: 18px;
     }
 
+    .lightbox-nav:hover {
+    background: #67e8f9dc;
+    color: #0f172a;
+    transform: translateY(-50%) scale(1.05);
+}
+
     .lightbox-prev {
         left: 10px;
         width: 53px;
