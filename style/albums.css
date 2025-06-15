@@ -392,11 +392,14 @@ body {
     font-weight: 600;
     color: #f0f9ff;
     margin-bottom: 5px;
+    margin-top: 0px
 }
 
 .lightbox-desc {
     font-size: 14px;
     color: #cbd5e1;
+    margin: 0;
+    line-height: 1.4;
 }
 
 .lightbox-counter {
@@ -409,6 +412,13 @@ body {
     border-radius: 20px;
     font-size: 14px;
     font-weight: 600;
+}
+
+.lightbox,
+.lightbox-content,
+.lightbox-title,
+.lightbox-desc {
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 /*pie*/
