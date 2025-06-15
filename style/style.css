@@ -620,7 +620,7 @@ p {
     .cabecera-img {
         width: 215px;
         filter: saturate(1.5) drop-shadow(-5px 0px 8px rgba(15, 23, 26, 0.37));
-        margin-right: 240px;
+        margin-right: 230px;
         margin-left: 18px;
         margin-top: -8px;
     }
@@ -642,6 +642,7 @@ p {
         width: 150px; /* Ancho fijo más pequeño en lugar de 90% */
         height: 320px; /* Reducir altura también */
         margin: 8px; /* Reducir márgenes */
+        margin-left: 0px;
         padding: 6px; /* Reducir padding interno */
     }
 
