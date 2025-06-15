@@ -316,6 +316,30 @@
             document.getElementById('total-images').textContent = images.length;
         }
 
+        // Soporte para swipe en el lightbox
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const lightbox = document.getElementById('lightbox');
+
+        lightbox.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        lightbox.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
+
+        function handleGesture() {
+            if (touchEndX < touchStartX - 40) {
+                changeImage(1); // Siguiente imagen
+            }
+            if (touchEndX > touchStartX + 40) {
+                changeImage(-1); // Imagen anterior
+            }
+        }
+
         // Cerrar lightbox con tecla ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
