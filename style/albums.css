@@ -1,29 +1,35 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     margin: 0px;
     padding: 0px;
-    background: linear-gradient(45deg, #1a2332, #0f1419, #394c61);
+    background: linear-gradient(45deg, #1a2332, #0f1419, #35435a);
     background-size: 400% 400%;
     animation: gradient 20s ease-in infinite;
-    font-family: 'Montserrat', Arial, sans-serif;
-    overflow-x: hidden; /* Evita el scroll horizontal */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/*navbar*/
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* navbar */
 #nav {
     width: 100%;
     height: 50px;
@@ -47,7 +53,7 @@ body {
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     top: 0;
-    z-index: 50;
+    z-index: 50; /* ← Añadir esta línea */
     overflow-x: auto;
 }
 
@@ -76,7 +82,8 @@ body {
     letter-spacing: 1px;
 }
 
-#nav a:hover, #nav a.active {
+#nav a:hover,
+#nav a.active {
     background: #67e8f9;
     color: #0f172a;
     transform: translateY(-2px);
@@ -108,7 +115,8 @@ body {
     letter-spacing: 0px;
 }
 
-#nav2 a:hover, #nav2 a.active {
+#nav2 a:hover,
+#nav2 a.active {
     background: rgba(103, 232, 249, 0.9);
     color: #0f172a;
     transform: translateY(-1px);
@@ -120,7 +128,7 @@ body {
     height: 25px;
     vertical-align: middle;
     margin-right: 6px;
-    filter: hue-rotate(180deg) saturate(2) brightness(1.2); 
+    filter: hue-rotate(180deg) saturate(2) brightness(1.2);
     transition: all 0.3s ease;
 }
 
@@ -130,7 +138,7 @@ body {
     transform: scale(1.1);
 }
 
-/*cabecera*/
+/* cabecera */
 #cabecera {
     width: 100%;
     height: 300px;
@@ -161,7 +169,7 @@ body {
     margin-bottom: 0px;
     letter-spacing: 2px;
     text-shadow: 0rem 0.25rem 0rem #24304e;
-    font-weight: 400; 
+    font-weight: 400;
 }
 
 .cabecera-subtitulo {
@@ -191,7 +199,6 @@ body {
         transform: translateX(0);
     }
 }
-
 /* Header de la página */
 .page-header {
     text-align: center;
@@ -603,6 +610,7 @@ body {
 
 /* Móviles - 480px y menos */
 @media screen and (max-width: 480px) {
+    /* Navegación principal */
     body {
         display: flex;
         flex-direction: column;
@@ -753,6 +761,7 @@ body {
     .cabecera-textos {
         margin-bottom: 10px;
     }
+
 
     /* Galería */
     .gallery-container {
