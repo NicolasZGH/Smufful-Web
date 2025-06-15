@@ -4,6 +4,15 @@ body {
     background: linear-gradient(45deg, #1a2332, #0f1419, #35435a);
     background-size: 400% 400%;
     animation: gradient 20s ease-in infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes gradient {
@@ -44,7 +53,7 @@ body {
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     top: 0;
-    z-index: 100;
+    z-index: 50; /* ← Añadir esta línea */
     overflow-x: auto;
 }
 
@@ -193,24 +202,28 @@ body {
 
 /* cuerpo */
 #cuerpo {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    margin: 0px 0;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Reducido de 0px a 10px para un espaciado mínimo */
+    max-width: 1200px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px; /* Añade padding al contenedor */
+    justify-items: center; /* Centra cada artículo dentro de su celda */
+    flex: 1; /* Permite que el cuerpo ocupe el espacio restante */
+    align-content: start;
 }
 
 .articulo {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 200px;
     height: 400px;
-    margin: 19.5px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 60px; /* Reducido de 19.5px a 10px */
+    margin-top: 20px; /* Reducido de 30px a 20px */
+    margin-bottom: 20px; /* Reducido de 30px a 20px */
     background: rgba(71, 85, 105, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(103, 232, 249, 0.1);
-    float: left;
+    /* Eliminar float: left; para que funcione correctamente con grid */
     padding: 8px;
     overflow: hidden;
     font-family: 'Exo', sans-serif;
@@ -306,6 +319,8 @@ p {
     letter-spacing: 0.5px;
     border-top: 1px solid rgba(103, 232, 249, 0.1);
     flex-wrap: wrap;
+    margin-top: auto; /* Esta línea empuja el footer hacia abajo */
+    flex-shrink: 0; /* Evita que el footer se encoja */
 }
 
 #pie a {
@@ -354,8 +369,6 @@ p {
         overflow-x: hidden; /* Evita el scroll horizontal */
         width: 100%;
     }
-
-
 
     /* Navegación principal */
     #nav ul {
@@ -486,65 +499,78 @@ p {
     #nav {
         position: static;
         height: 35px;
+        justify-content: flex-start; /* Alinear contenido a la izquierda */
+        padding-left: 10px; /* Espaciado desde el borde izquierdo */
+        z-index: 150;;
     }
 
     #menu-toggle {
-        width: 110%;
-        position:fixed;
         display: block;
         background: #0891b2;
         border: none;
         font-size: 1.5em;
         color: #f0f9ff;
         cursor: pointer;
-        margin: 1px 0 0 1px;
-        margin-top: -1px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        position: relative; /* Cambiar de fixed a relative */
         z-index: 200;
+        margin-right: auto; /* Empuja el botón hacia la izquierda */
     }
 
 
     #nav ul {
-        display: none; /* Oculto por defecto */
+        display: none;
         position: fixed;
-        top: 50px;
+        top: 35px;
         left: 0;
-        width: 100vw;
+        width: 50vw; /* ← Cambiar de 100vw a 50vw */
+        max-width: 250px; /* ← Añadir */
         background: #0891b2;
         z-index: 9999;
-        padding: 12px 0;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, auto);
-        gap: 8px 0;
-        justify-items: center;
-        top: 34px; /* Ajusta la posición vertical */
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 12px 0; /* ← Reducir padding */
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        border-radius: 0 0 12px 0; /* ← Añadir */
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.3); /* ← Añadir */
     }
     #nav.open ul {
-        display: grid; /* Solo visible cuando está abierto */
+        display: flex; /* Solo visible cuando está abierto */
     }
 
 #nav li {
-    width: 100%;
+        width: 90%; /* Ancho de cada elemento */
+        margin-bottom: 8px; /* Espacio entre elementos */
 }
 
     #nav a {
-        display: block; /* Hace que el enlace ocupe todo el ancho del li */
-        text-align: center; /* Centra el texto dentro del enlace */
-        width: 100%; /* Asegura el ancho completo */
-        padding: 10px 5px;
-        font-size: 13px;
+        display: block;
+        text-align: center;
+        width: 80%;
+        padding: 12px 15px; /* Más padding vertical */
+        font-size: 14px;
         letter-spacing: 0.5px;
+        border-radius: 8px; /* Bordes redondeados */
+        margin: 0 auto;
     }
 
 #nav a.active {
-    padding: 10px 2px;
-    padding-left: 0px;
-    min-width: unset;
-    width: auto;
+        background: #67e8f9;
+        color: #0f172a;
 }
 
+    #nav a:hover {
+        background: rgba(103, 232, 249, 0.9);
+        color: #0f172a;
+    }
+
     /* Navegación social */
+
+    #nav2 {
+        z-index: 50;
+    }
+
     #nav2 ul {
         display: flex;
         gap: 30px;
@@ -579,7 +605,7 @@ p {
     .cabecera-titulo {
         font-size: 45px;
         letter-spacing: 1px;
-        margin-left: 150px;
+        margin-left: 160px;
         margin-bottom: 0px;
         margin-top: -130px;
     }
@@ -587,16 +613,16 @@ p {
     .cabecera-subtitulo {
         font-size: 10px;
         letter-spacing: 1px;
-        margin-left: 158px;
+        margin-left: 166px;
         margin-bottom: 10px;
     }
 
     .cabecera-img {
-        width: 200px;
+        width: 215px;
         filter: saturate(1.5) drop-shadow(-5px 0px 8px rgba(15, 23, 26, 0.37));
         margin-right: 240px;
         margin-left: 18px;
-        margin-top: 10px;
+        margin-top: -8px;
     }
 
     .cabecera-textos {
@@ -605,16 +631,18 @@ p {
 
     /* Cuerpo */
     #cuerpo {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        margin: 0 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px; /* Reducir gap */
+        justify-items: center;
+        padding: 15px 10px; /* Reducir padding lateral */
     }
-
+    
     .articulo {
-        width: 165px;
-        height: 350px;
-        margin: 10px 0;
+        width: 150px; /* Ancho fijo más pequeño en lugar de 90% */
+        height: 320px; /* Reducir altura también */
+        margin: 8px; /* Reducir márgenes */
+        padding: 6px; /* Reducir padding interno */
     }
 
     .articulo:hover {
@@ -622,22 +650,25 @@ p {
     }
 
     .redondo {
-        height: 160px;
+        height: 150px; /* Reducir altura de imagen */
     }
 
     h3 {
-        font-size: 16px;
+        font-size: 14px; /* Reducir tamaño de título */
+        margin-top: 8px;
     }
 
     p {
-        font-size: 12px;
-        padding: 0 10px;
+        font-size: 11px; /* Reducir tamaño de texto */
+        padding: 0 8px;
+        line-height: 1.4;
     }
 
     .btn {
-        margin-left: 35px;
-        padding: 8px 16px;
-        font-size: 0.8rem;
+        margin-left: 32px; /* Ajustar centrado del botón */
+        padding: 6px 12px; /* Reducir padding del botón */
+        font-size: 0.75rem; /* Reducir tamaño de fuente */
+        margin-top: 5px;
     }
 
     /* Pie */
