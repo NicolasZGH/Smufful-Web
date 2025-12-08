@@ -223,8 +223,10 @@ body {
 }
 
 /* Galería */
+
+
 .gallery-container {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 60px 20px;
     margin-bottom: 40px;
@@ -233,9 +235,11 @@ body {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px; /* o el valor que quieras */
 }
+
+
 
 .gallery-item {
     aspect-ratio: 1 / 1;
