@@ -92,19 +92,39 @@
                 <img src="images/drawings/emotes/emote7.png" alt="Emote 7">
             </div>
             <div class="gallery-item" onclick="openLightbox(7)">
-                <img src="images/drawings/emotes/gifemote1.gif" alt="Emote 8">
+                <img 
+                    src="images/drawings/emotes/gifemote1.png"
+                    data-static="images/drawings/emotes/gifemote1.png"
+                    data-gif="images/drawings/emotes/gifemote1.gif"
+                    alt="Emote 8">
             </div>
             <div class="gallery-item" onclick="openLightbox(8)">
-                <img src="images/drawings/emotes/gifemote2.gif" alt="Emote 9">
+                <img 
+                    src="images/drawings/emotes/gifemote2.png"
+                    data-static="images/drawings/emotes/gifemote2.png"
+                    data-gif="images/drawings/emotes/gifemote2.gif"
+                    alt="Emote 9">
             </div>
             <div class="gallery-item" onclick="openLightbox(9)">
-                <img src="images/drawings/emotes/gifemote3.gif" alt="Emote 10">
+                <img 
+                    src="images/drawings/emotes/gifemote3.png"
+                    data-static="images/drawings/emotes/gifemote3.png"
+                    data-gif="images/drawings/emotes/gifemote3.gif"
+                    alt="Emote 10">
             </div>
             <div class="gallery-item" onclick="openLightbox(10)">
-                <img src="images/drawings/emotes/gifemote4.gif" alt="Emote 11">
+                <img 
+                    src="images/drawings/emotes/gifemote4.png"
+                    data-static="images/drawings/emotes/gifemote4.png"
+                    data-gif="images/drawings/emotes/gifemote4.gif"
+                    alt="Emote 11">
             </div>
             <div class="gallery-item" onclick="openLightbox(11)">
-                <img src="images/drawings/emotes/gifemote5.gif" alt="Emote 12">
+                <img 
+                    src="images/drawings/emotes/gifemote5.png"
+                    data-static="images/drawings/emotes/gifemote5.png"
+                    data-gif="images/drawings/emotes/gifemote5.gif"
+                    alt="Emote 12">
             </div>
         </div>
     </div>
@@ -283,6 +303,14 @@
 document.getElementById('menu-toggle').onclick = function() {
     document.getElementById('nav').classList.toggle('open');
 };
+
+document.querySelectorAll('.gallery-item img[data-gif]').forEach(img => {
+    const gif = new Image();
+    gif.src = img.dataset.gif;
+});
+
+
 </script>
+
 </body>
 </html>
