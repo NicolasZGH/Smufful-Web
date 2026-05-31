@@ -186,7 +186,7 @@ body {
 .cabecera-img {
     width: 490px;
     height: auto;
-    margin: 0 0 0px 8px;
+    margin: 0 0 0px 170px;
     display: block;
     filter: saturate(1.5) drop-shadow(-5px 0px 8px rgba(15, 23, 26, 0.568));
     opacity: 0;
