@@ -156,6 +156,7 @@ body {
     align-items: flex-start;
     margin-bottom: 60px;
     gap: 0.2em;
+    margin-left: 35px;
 }
 
 .cabecera-titulo {
