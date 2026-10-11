@@ -8,20 +8,11 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link rel='icon' href='images/icon.png'>
     <link rel='icon' type='image/x-icon' href='images/icon.ico'>
-
 </head>
 <body>
-    <!--navbar-->
-        <div id="nav">
-            <button id="menu-toggle" aria-label="Abrir menú">☰</button>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="emotes.html">Emotes</a></li>
-                <li><a href="simple_drawings.html">Simple Drawings</a></li>
-                <li><a href="detailed_drawings.html">Detailed Drawings</a></li>
-                <li><a href="portraits.html">Portraits</a></li>
-            </ul>
-        </div>
+
+    <!-- Contenedor donde se cargará el navbar -->
+    <div id="navbar-container"></div>
 
     <!--cabecera-->
     <div id="cabecera">
@@ -31,7 +22,6 @@
             <h2 class="cabecera-subtitulo">Digital Artist & Web Designer</h2>
         </div>
     </div>
-
 
     <div id="nav2">
         <ul>
@@ -68,55 +58,72 @@
         </ul>
     </div>
 
-
-
     <!--cuerpo-->
+    <div id="cuerpo">
+        <div class="articulo">
+            <img src="images/DelixEmote-original.gif" class="redondo">
+            <h3>Emotes</h3>
+            <p>Static and animated emotes for Twitch, Discord, YouTube or other platforms</p>
+            <a href="emotes.html" class="btn">See more</a>
+        </div>
 
-<div id="cuerpo">
-    <div class="articulo">
-        <img src="images/DelixEmote-original.gif" class="redondo">
-        <h3>Emotes</h3>
-        <p>Static and animated emotes for Twitch, Discord, YouTube or other platforms</p>
-        <a href="emotes.html" class="btn">See more</a>
+        <div class="articulo">
+            <img src="images/simple.webp" class="redondo">
+            <h3>Simple Drawings</h3>
+            <p>Simple drawings with minimal detail, mainly intended for profile pictures</p>
+            <a href="simple_drawings.html" class="btn">See more</a>
+        </div>
+
+        <div class="articulo">
+            <img src="images/detallado.webp" class="redondo">
+            <h3>Detailed Drawings</h3>
+            <p>Drawings with greater detail, including both illustration, painting, and background</p>
+            <a href="detailed_drawings.html" class="btn">See more</a>
+        </div>
+
+        <div class="articulo">
+            <img src="images/retrato.webp" class="redondo">
+            <h3>Portraits</h3>
+            <p>Detailed portraits of people or pets with an artistic touch (without the use of AI)</p>
+            <a href="portraits.html" class="btn">See more</a>
+        </div>
+
+        <!--pie-->
+        <div id="pie">
+            © 2025 Smufful -
+            <h4 style="border:1">Contact:</h4>
+            <a href="https://instagram.com/smufful" target="_blank">Instagram: @smufful</a>
+            <a href="https://discordapp.com/users/1144059254383321220" target="_blank">Discord: nicolas_zorrilla</a>
+        </div>
     </div>
 
-    <div class="articulo">
-        <img src="images/simple.webp" class="redondo">
-        <h3>Simple Drawings</h3>
-        <p>Simple drawings with minimal detail, mainly intended for profile pictures</p>
-        <a href="simple_drawings.html" class="btn">See more</a>
-    </div>
+    <script>
+        // Cargar el navbar dinámicamente
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
 
-    <div class="articulo">
-        <img src="images/detallado.webp" class="redondo">
-        <h3>Detailed Drawings</h3>
-        <p>Drawings with greater detail, including both illustration, painting, and background</p>
-        <a href="detailed_drawings.html" class="btn">See more</a>
-    </div>
+                // Inicializar el botón hamburguesa después de cargar el navbar
+                const menuToggle = document.getElementById('menu-toggle');
+                if (menuToggle) {
+                    menuToggle.onclick = function() {
+                        document.getElementById('nav').classList.toggle('open');
+                    };
+                }
 
-    <div class="articulo">
-        <img src="images/retrato.webp" class="redondo">
-        <h3>Portraits</h3>
-        <p>Detailed portraits of people or pets with an artistic touch (without the use of AI)</p>
-        <a href="portraits.html" class="btn">See more</a>
-    </div>
-
-
-    <!--pie-->
-    <div id="pie">
-    © 2025 Smufful -
-    <h4 style=border:1>Contact:</h4>
-    <a href="https://instagram.com/smufful" target="_blank">Instagram: @smufful</a>
-    <a href="https://discordapp.com/users/1144059254383321220" target="_blank">Discord: nicolas_zorrilla</a>
-    </div>
-        
-</div>
-
-<script>
-document.getElementById('menu-toggle').onclick = function() {
-    document.getElementById('nav').classList.toggle('open');
-};
-</script>
+                // Marcar el enlace activo según la página actual
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                document.querySelectorAll('#nav ul li a').forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            })
+            .catch(error => console.error('Error al cargar el navbar:', error));
+    </script>
 
 </body>
 </html>

@@ -11,17 +11,8 @@
     <link rel='icon' type='image/x-icon' href='images/icon.ico'>
 
 <body>
-    <!--navbar-->
-        <div id="nav">
-            <button id="menu-toggle" aria-label="Abrir menú">☰</button>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="emotes.html">Emotes</a></li>
-                <li><a href="simple_drawings.html">Simple Drawings</a></li>
-                <li><a href="detailed_drawings.html"  class="active">Detailed Drawings</a></li>
-                <li><a href="portraits.html">Portraits</a></li>
-            </ul>
-        </div>
+    <!-- Contenedor donde se cargará el navbar -->
+    <div id="navbar-container"></div>
 
     <!--cabecera-->
     <div id="cabecera">
@@ -137,6 +128,16 @@
                 <p id="lightbox-desc" class="lightbox-desc"></p>
             </div>
         </div>
+    </div>
+
+
+
+    <!--pie-->
+    <div id="pie">
+    © 2025 Smufful -
+    <h4 style=border:1>Contact:</h4>
+    <a href="https://instagram.com/smufful" target="_blank">Instagram: @smufful</a>
+    <a href="https://discordapp.com/users/1144059254383321220" target="_blank">Discord: nicolas_zorrilla</a>
     </div>
 
     <script>
@@ -294,19 +295,33 @@
     </script>
 
 
-    <!--pie-->
-    <div id="pie">
-    © 2025 Smufful -
-    <h4 style=border:1>Contact:</h4>
-    <a href="https://instagram.com/smufful" target="_blank">Instagram: @smufful</a>
-    <a href="https://discordapp.com/users/1144059254383321220" target="_blank">Discord: nicolas_zorrilla</a>
-    </div>
+    <script>
+        // Cargar el navbar dinámicamente
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
 
-<script>
-document.getElementById('menu-toggle').onclick = function() {
-    document.getElementById('nav').classList.toggle('open');
-};
-</script>
+                // Inicializar el botón hamburguesa después de cargar el navbar
+                const menuToggle = document.getElementById('menu-toggle');
+                if (menuToggle) {
+                    menuToggle.onclick = function() {
+                        document.getElementById('nav').classList.toggle('open');
+                    };
+                }
+
+                // Marcar el enlace activo según la página actual
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                document.querySelectorAll('#nav ul li a').forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            })
+            .catch(error => console.error('Error al cargar el navbar:', error));
+    </script>
 
 </body>
 

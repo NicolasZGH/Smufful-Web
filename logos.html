@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logos - Smufful Portfolio</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/albums.css">
+    <link rel='icon' href='images/icon.png'>
+    <link rel='icon' type='image/x-icon' href='images/icon.ico'>
+
+<body>
+    <!-- Contenedor donde se cargará el navbar -->
+    <div id="navbar-container"></div>
+
+    <!--cabecera-->
+    <div id="cabecera">
+        <img src="images/cabecera.webp" class="cabecera-img" alt="Imagen cabecera">
+        <div class="cabecera-textos">
+            <h1 class="cabecera-titulo">Smufful</h1>
+            <h2 class="cabecera-subtitulo">Digital Artist & Web Designer</h2>
+        </div>
+    </div>
+
+
+    <div id="nav2">
+        <ul>
+            <li>
+                <a href="https://www.instagram.com/smufful/" target="_blank" title="Instagram Account">
+                    <img src="images/instagram-icon.ico" alt="Instagram" class="icono-red"> Instagram
+                </a>
+            </li>
+            <li>
+                <a href="https://x.com/Smufful" target="_blank" title="X (Twitter) Account">
+                    <img src="images/x-icon.ico" alt="X" class="icono-red"> X
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@smufful" target="_blank" title="TikTok Account">
+                    <img src="images/tiktok-icon.ico" alt="TikTok" class="icono-red"> TikTok
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/@Smufful3" target="_blank" title="YouTube Account">
+                    <img src="images/youtube-icon.ico" alt="YouTube" class="icono-red"> YouTube
+                </a>
+            </li>
+            <li>
+                <a href="https://cara.app/smufful/portfolio" target="_blank" title="Cara Account">
+                    <img src="images/cara-icon.ico" alt="Cara" class="icono-red"> Cara
+                </a>
+            </li>
+            <li>
+                <a href="https://vgen.co/Smufful/characters" target="_blank" title="Vgen Account">
+                    <img src="images/vgen-icon.ico" alt="Vgen" class="icono-red"> Vgen
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Galería -->
+    <div class="gallery-container">
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(0)">
+                <img src="images/drawings/logos/miniaturas/crackhead.webp" alt="Logo 1">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(1)">
+                <img src="images/drawings/logos/miniaturas/fatalblow.webp" alt="Logo 2">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(2)">
+                <img src="images/drawings/logos/miniaturas/hanamori.webp" alt="Logo 3">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(3)">
+                <img src="images/drawings/logos/miniaturas/hellomaryhouse.webp" alt="Logo 4">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(4)">
+                <img src="images/drawings/logos/miniaturas/naturalistic.webp" alt="Logo 5">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(5)">
+                <img src="images/drawings/logos/miniaturas/ondipuri.webp" alt="Logo 6">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(6)">
+                <img src="images/drawings/logos/miniaturas/redish.webp" alt="Logo 7">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <div class="lightbox-counter">
+                <span id="current-image">1</span> / <span id="total-images">6</span>
+            </div>
+            <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">‹</button>
+            <img id="lightbox-img" class="lightbox-image" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">›</button>
+            <div class="lightbox-info">
+                <h3 id="lightbox-title" class="lightbox-title"></h3>
+                <p id="lightbox-desc" class="lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Datos de las imágenes
+        const images = [
+            {
+                src: "images/drawings/logos/presentacion-crackheadkatz.webp",
+                title: "Logo Design",
+            },
+            {
+                src: "images/drawings/logos/presentacion-fatalblow.webp",
+                title: "Logo Design",
+            },
+            {
+                src: "images/drawings/logos/presentacion-hanamori.webp",
+                title: "Logo Design",
+            },
+            {
+                src: "images/drawings/logos/presentacion-hellomaryhouse.webp",
+                title: "Logo Design",
+            },
+            {
+                src: "images/drawings/logos/presentacion-naturlaisticphotos.webp",
+                title: "Logo Design",
+            },
+            {
+                src: "images/drawings/logos/presentacion-ondipuri.webp",
+                title: "Logo Design",
+            },
+            {
+                src: "images/drawings/logos/presentacion-reddish.webp",
+                title: "Logo Design",
+            }
+        ];
+        // Variables para el lightbox
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxContent();
+            document.getElementById('lightbox').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+            
+            updateLightboxContent();
+        }
+
+        function updateLightboxContent() {
+            const currentImage = images[currentImageIndex];
+            document.getElementById('lightbox-img').src = currentImage.src;
+            document.getElementById('lightbox-title').textContent = currentImage.title;
+            document.getElementById('lightbox-desc').textContent = currentImage.desc;
+            document.getElementById('current-image').textContent = currentImageIndex + 1;
+            document.getElementById('total-images').textContent = images.length;
+        }
+
+        // Soporte para swipe en el lightbox
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const lightbox = document.getElementById('lightbox');
+
+        lightbox.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        lightbox.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
+
+        function handleGesture() {
+            if (touchEndX < touchStartX - 40) {
+                changeImage(1); // Siguiente imagen
+            }
+            if (touchEndX > touchStartX + 40) {
+                changeImage(-1); // Imagen anterior
+            }
+        }
+
+        // Cerrar lightbox con tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeImage(1);
+            }
+        });
+        
+        // Cerrar lightbox al hacer clic fuera de la imagen
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+            // Cambia a GIF al pasar el mouse y vuelve a la estática al salir
+        document.querySelectorAll('.gallery-item img[data-gif]').forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.src = this.dataset.gif;
+            });
+            img.addEventListener('mouseleave', function() {
+                this.src = this.dataset.static;
+            });
+        });
+    </script>
+
+
+    <!--pie-->
+    <div id="pie">
+    © 2025 Smufful -
+    <h4 style=border:1>Contact:</h4>
+    <a href="https://instagram.com/smufful" target="_blank">Instagram: @smufful</a>
+    <a href="https://discordapp.com/users/1144059254383321220" target="_blank">Discord: nicolas_zorrilla</a>
+    </div>
+
+<script>
+document.getElementById('menu-toggle').onclick = function() {
+    document.getElementById('nav').classList.toggle('open');
+};
+</script>
+
+    <script>
+        // Cargar el navbar dinámicamente
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+
+                // Inicializar el botón hamburguesa después de cargar el navbar
+                const menuToggle = document.getElementById('menu-toggle');
+                if (menuToggle) {
+                    menuToggle.onclick = function() {
+                        document.getElementById('nav').classList.toggle('open');
+                    };
+                }
+
+                // Marcar el enlace activo según la página actual
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                document.querySelectorAll('#nav ul li a').forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            })
+            .catch(error => console.error('Error al cargar el navbar:', error));
+    </script>
+
+</body>
+
