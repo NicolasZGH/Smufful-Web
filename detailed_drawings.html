@@ -6,13 +6,24 @@
     <title>Detailed Drawings - Smufful Portfolio</title>
     <link rel="stylesheet" href="style/style.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/albums.css">
     <link rel='icon' href='images/icon.png'>
     <link rel='icon' type='image/x-icon' href='images/icon.ico'>
 
 <body>
     <!-- Contenedor donde se cargará el navbar -->
-    <div id="navbar-container"></div>
+    <!--navbar-->
+    <nav id="nav">
+        <button id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="emotes.html">Emotes</a></li>
+            <li><a href="simple_drawings.html">Simple Drawings</a></li>
+            <li><a href="detailed_drawings.html">Detailed Drawings</a></li>
+            <li><a href="logos.html">Logos</a></li>
+        </ul>
+    </nav>
 
     <!--cabecera-->
     <div id="cabecera">
@@ -117,8 +128,8 @@
 
     <!--pie-->
     <div id="pie">
-    © 2025 Smufful -
-    <h4 style=border:1>Contact:</h4>
+    &copy; 2025 Smufful -
+    <h4>Contact:</h4>
     <a href="https://instagram.com/smufful" target="_blank">Instagram: @smufful</a>
     </div>
 
@@ -261,32 +272,25 @@
     </script>
 
 
+    
     <script>
-        // Cargar el navbar dinámicamente
-        fetch('navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
+        // Menú hamburguesa
+        const menuToggle = document.getElementById('menu-toggle');
+        if (menuToggle) {
+            menuToggle.onclick = function() {
+                document.getElementById('nav').classList.toggle('open');
+            };
+        }
 
-                // Inicializar el botón hamburguesa después de cargar el navbar
-                const menuToggle = document.getElementById('menu-toggle');
-                if (menuToggle) {
-                    menuToggle.onclick = function() {
-                        document.getElementById('nav').classList.toggle('open');
-                    };
-                }
-
-                // Marcar el enlace activo según la página actual
-                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-                document.querySelectorAll('#nav ul li a').forEach(link => {
-                    if (link.getAttribute('href') === currentPage) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            })
-            .catch(error => console.error('Error al cargar el navbar:', error));
+        // Marcar el enlace activo según la página actual
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('#nav ul li a').forEach(function(link) {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     </script>
 
 </body>
