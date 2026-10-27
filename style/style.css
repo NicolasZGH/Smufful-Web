@@ -137,7 +137,7 @@ body {
     text-decoration: none;
     padding: 8px 24px;
     border-radius: 20px;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     font-weight: 600;
     font-size: 15px;
     letter-spacing: 0.5px;
@@ -182,10 +182,10 @@ body {
 }
 
 .cabecera-img {
-    width: clamp(190px, 100vw, 500px);
+    width: clamp(180px, 34vw, 480px);
     height: auto;
     display: block;
-    filter: saturate(1.5) drop-shadow(-5px 0 10px #04303571);
+    filter: saturate(1.5) drop-shadow(-5px 0 10px rgba(15, 23, 26, 0.45));
     opacity: 0;
     transform: translateX(-60px);
     animation: subirImagen 0.5s ease-out forwards;
@@ -214,7 +214,7 @@ body {
     filter: saturate(1.2);
     margin: 0;
     letter-spacing: 2px;
-    text-shadow: 0 0.22em 0 #133f42;
+    text-shadow: 0 0.22em 0 #175458;
     font-weight: 400;
     overflow-wrap: anywhere;
 }
@@ -224,7 +224,7 @@ body {
     font-size: clamp(13px, 2.2vw, 20px);
     letter-spacing: clamp(2px, 0.4vw, 2px);
     margin: auto;
-    text-shadow: 0.1rem 0.1rem 0 #18464973;
+    text-shadow: 0.2rem 0.2rem 0 #17545854;
     white-space: nowrap;
 }
 
@@ -808,7 +808,7 @@ body.menu-abierto {
 #nav a {
     color: #f1fcfb;
     border-radius: 20px;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
 #nav a:hover,
@@ -851,7 +851,7 @@ body.menu-abierto {
 
 /* La sombra del título ya no invade el subtítulo */
 .cabecera-titulo {
-    text-shadow: 0 0.12em 0 #18464988;
+    text-shadow: 0 0.12em 0 #17545854;
     margin-bottom: 0.22em;
 }
 
